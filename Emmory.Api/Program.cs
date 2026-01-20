@@ -1,5 +1,14 @@
+using Emmory.Api.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<EmmoryDbContext>(options =>
+{
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("Emmory")
+    );
+});
 // Add services to the container.
 
 builder.Services.AddControllers();
