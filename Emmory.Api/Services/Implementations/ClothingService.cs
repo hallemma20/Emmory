@@ -1,25 +1,37 @@
-﻿using Emmory.Api.Services.Interfaces;
+﻿using Emmory.Api.Domain.Entities;
+using Emmory.Api.Infrastructure.Data;
+using Emmory.Api.Models;
+using Emmory.Api.Services.Interfaces;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
 using System.Data.SqlClient;
-using Microsoft.Data.SqlClient;
+using Emmory.Api.Models.Extensions;
 
 namespace Emmory.Api.Services.Implementations
 {
     public class ClothingService : IClothingService
     {
-        // Implementation of clothing-related services will go here
-        private readonly string _connectionString;
+        private readonly EmmoryDbContext _db;
 
-        public ClothingService(IConfiguration appSettings)
+        public ClothingService(EmmoryDbContext db)
         {
-            _connectionString = appSettings.GetValue<string>("ConnectionStrings:Clothing");
+            _db = db;
         }
-        //_configuration.GetValue<string>("Communication:Onboarding");
+        
+        public int Add(ClothingDto clothingDto)
+        {
+            var clothing = new Clothing().MapFrom(clothingDto);
 
-        //public async Task<string> Emma()
-        //{
-        //    await using var sqlConnection = new SqlConnection(_connectionString);
+            _db.Clothings.Add(clothing);
+            _db.SaveChanges();
 
-        //}
+            return clothing.Id;
+        }
+
+        public List<ClothingDto> Clothing()
+        {
+            var clothingList = _db.Clothings.ToList();
+            return new List<ClothingDto>().MapFrom(clothingList);
+        }
     }
 }

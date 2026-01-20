@@ -1,4 +1,8 @@
 using Emmory.Api.Infrastructure.Data;
+using Emmory.Api.Managers.Implementations;
+using Emmory.Api.Managers.Interfaces;
+using Emmory.Api.Services.Implementations;
+using Emmory.Api.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +14,9 @@ builder.Services.AddDbContext<EmmoryDbContext>(options =>
     );
 });
 // Add services to the container.
+builder.Services.AddScoped<IClothingService, ClothingService>();
+
+builder.Services.AddScoped<IClothingManager, ClothingManager>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

@@ -1,4 +1,7 @@
-﻿using Emmory.Api.Infrastructure.Data;
+﻿using Emmory.Api.Domain.Entities;
+using Emmory.Api.Infrastructure.Data;
+using Emmory.Api.Managers.Interfaces;
+using Emmory.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,17 +11,37 @@ namespace Emmory.Api.Controllers;
 [Route("api/[controller]")]
 public class ClothingController : ControllerBase
 {
-    private readonly EmmoryDbContext _db;
+    private readonly IClothingManager _clothingManager;
 
-    public ClothingController(EmmoryDbContext db)
+    public ClothingController(IClothingManager clothingManager)
     {
-        _db = db;
+        _clothingManager = clothingManager;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    //[HttpGet]
+    //public async Task<IActionResult> GetAll()
+    //{
+    //    var items = await _db.Clothings.ToListAsync();
+    //    return Ok(items);
+    //}
+
+    [HttpGet("ping")]
+    public IActionResult Ping()
     {
-        var items = await _db.Clothings.ToListAsync();
-        return Ok(items);
+        return Ok("Pong");
+    }
+
+    [HttpPost("add")]
+    public IActionResult Add(ClothingDto clothing)
+    {
+        var newId = _clothingManager.Add(clothing);
+        return Ok(newId);
+    }
+
+    [HttpGet("clothing")]
+    public IActionResult Clothing()
+    {
+        var clothingList = _clothingManager.Clothing();
+        return Ok(clothingList);
     }
 }
