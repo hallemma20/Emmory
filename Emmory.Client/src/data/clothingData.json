@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Classic White T-Shirt",
+    "category": 1,
+    "brand": "Uniqlo",
+    "colour": "White",
+    "createdAt": "2024-01-05T09:15:00Z"
+  },
+  {
+    "id": 2,
+    "name": "Slim Fit Jeans",
+    "category": 2,
+    "brand": "Levi's",
+    "colour": "Blue",
+    "createdAt": "2024-01-07T14:22:00Z"
+  },
+  {
+    "id": 3,
+    "name": "Denim Shorts",
+    "category": 66,
+    "brand": "Wrangler",
+    "colour": "Blue",
+    "createdAt": "2024-01-09T11:00:00Z"
+  },
+  {
+    "id": 4,
+    "name": "Black Hoodie",
+    "category": 9,
+    "brand": "Nike",
+    "colour": "Black",
+    "createdAt": "2024-01-10T08:45:00Z"
+  },
+  {
+    "id": 5,
+    "name": "Summer Dress",
+    "category": 4,
+    "brand": "Zara",
+    "colour": "Red",
+    "createdAt": "2024-01-12T13:35:00Z"
+  },
+  {
+    "id": 6,
+    "name": "Leather Jacket",
+    "category": 8,
+    "brand": "AllSaints",
+    "colour": "Black",
+    "createdAt": "2024-01-15T16:10:00Z"
+  },
+  {
+    "id": 7,
+    "name": "Running Trainers",
+    "category": 272,
+    "brand": "Adidas",
+    "colour": "White",
+    "createdAt": "2024-01-18T07:50:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Wool Beanie",
+    "category": 32,
+    "brand": "Carhartt",
+    "colour": "Brown",
+    "createdAt": "2024-01-22T12:00:00Z"
+  },
+  {
+    "id": 9,
+    "name": "Pleated Midi Skirt",
+    "category": 130,
+    "brand": "H&M",
+    "colour": "Black",
+    "createdAt": "2024-01-25T10:30:00Z"
+  },
+  {
+    "id": 10,
+    "name": "Track Pants",
+    "category": 258,
+    "brand": "Puma",
+    "colour": "Grey",
+    "createdAt": "2024-01-28T18:45:00Z"
+  }
+]
