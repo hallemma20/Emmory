@@ -1,0 +1,39 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.field-input:focus {
+  outline: 2px solid #c7d2fe;
+  border-color: #6366f1;
+}
+
+.field-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.field-error {
+  margin: 0;
+  font-size: 12px;
+  color: #b91c1c;
+}
