@@ -78,5 +78,13 @@
     "brand": "Puma",
     "colour": "Grey",
     "createdAt": "2024-01-28T18:45:00Z"
+  },
+  {
+    "id": 11,
+    "name": "Baby Blue Hoodie",
+    "category": 9,
+    "brand": "Primark",
+    "colour": "Blue",
+    "createdAt": "2026-02-12T09:32:55.264Z"
   }
 ]

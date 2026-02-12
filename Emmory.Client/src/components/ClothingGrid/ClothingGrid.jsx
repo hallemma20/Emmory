@@ -1,9 +1,12 @@
 import ClothingCard from "../ClothingCard/ClothingCard";
-import { hasCategory } from "../../constants/clothingCategories";
+import { ClothingCategory } from "../../constants/clothingCategories";
 import "./ClothingGrid.css";
 
-function ClothingGrid({items, selectedCategory}){
-    const filteredItems = selectedCategory === 0? items : items.filter(item => hasCategory(item.category, selectedCategory));
+function ClothingGrid({ items, selectedCategoryMask }){
+    const filteredItems =
+      selectedCategoryMask === ClothingCategory.None
+        ? items
+        : items.filter(item => (item.category & selectedCategoryMask) !== 0);
 
     return (
         <div className="grid">

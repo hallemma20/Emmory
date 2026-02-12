@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import Header from "../../components/Header/Header";
 import { ClothingCategory } from "../../constants/clothingCategories";
 import TextField from "../../components/FormFields/TextField";
-import DateField from "../../components/FormFields/DateField";
 import CategoryMultiSelect from "../../components/FormFields/CategoryMultiSelect";
 import "./AddItem.css";
 
@@ -10,8 +9,7 @@ const INITIAL_FORM = {
   name: "",
   category: ClothingCategory.None,
   brand: "",
-  colour: "",
-  createdAt: ""
+  colour: ""
 };
 
 const API_PATH = "/api/clothing";
@@ -81,8 +79,7 @@ function AddItem() {
       Name: form.name.trim(),
       Category: form.category,
       Brand: form.brand.trim(),
-      Colour: form.colour.trim(),
-      CreatedAt: form.createdAt ? new Date(form.createdAt).toISOString() : null
+      Colour: form.colour.trim()
     };
 
     try {
@@ -152,15 +149,6 @@ function AddItem() {
               error={errors.colour}
               required
             />
-
-            <DateField
-              id="createdAt"
-              label="Created At"
-              value={form.createdAt}
-              onChange={value => updateField("createdAt", value)}
-              hint="Optional. If empty, backend defaults can apply."
-            />
-
             {status.message ? (
               <p className={`status-message ${status.type}`}>{status.message}</p>
             ) : null}
@@ -176,3 +164,5 @@ function AddItem() {
 }
 
 export default AddItem;
+
+
